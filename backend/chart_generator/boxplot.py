@@ -64,7 +64,7 @@ def generate_boxplot(
     
     # Styling
     plt.ylabel('Value', fontsize=12, fontweight='bold')
-    plt.title(title or f'Box Plot - {", ".join(columns)}', fontsize=14, fontweight='bold', pad=20)
+    plt.title(title if title else f'Box Plot - {", ".join(columns)}', fontsize=14, fontweight='bold', pad=20)
     plt.xticks(rotation=45, ha='right')
     plt.grid(axis='y', alpha=0.3, linestyle='--')
     plt.tight_layout()

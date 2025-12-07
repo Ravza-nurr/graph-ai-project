@@ -297,7 +297,8 @@ async def generate_chart(request: ChartRequest):
             )
         
         # Generate caption using AI
-        columns_used = [request.x_column] + (request.y_columns or [])
+        # Filter out None values from columns list
+        columns_used = [col for col in ([request.x_column] + (request.y_columns or [])) if col is not None]
         caption = await ai_client.generate_caption(
             chart_type=chart_type,
             columns=columns_used,
